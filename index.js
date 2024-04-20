@@ -10,9 +10,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 mongoose
-  .connect(
-    "mongodb+srv://gcafano:8IrJTgTOeairThG9@sample-blog-cluster.f9samns.mongodb.net/?retryWrites=true&w=majority&appName=sample-blog-cluster",
-  )
+  .connect(process.env.MONGO_DB_CONNECTTION_STRING)
   .then(() => {
     console.log("Connected to database");
     app.listen(port, () => {
